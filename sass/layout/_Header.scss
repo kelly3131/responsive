@@ -9,7 +9,8 @@
     .header {
         @media screen and (width < 900px) {
             position: relative;
-            background-color: var(--yellow)
+            background-color: var(--yellow);
+            border-bottom: .1rem solid rgba(225, 225, 225 0.3);
         }
         > div {
             display: grid;

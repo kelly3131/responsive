@@ -1,15 +1,20 @@
 // layer 순서(점수) 정의를 style.scss에서 하는것
 
 @layer Reset, Header, Button, Base, Align, Space;
+// layer 순서는 처음과 끝이 중요. 처음엔 Reset, 끝에는 Align과 Space.
+// 내가할 땐 componeht 하나만 쓴다.  그럼 중간에는 layout, components만 들어간다. 
 // 레이어 정의는 맨 상단에 하기
 // css에서는 nesting 다 해제되어 나온다. 그럼 전부 호환됨
 // 프론트에서 컴포넌트의 첫글자 다 대문자로 하니 scss도 컴포넌트단위로 하는거니 대문자로 똑같이 하기. 
 // 변수는 기본이라 레이어 순서에 굳이 넣지 않는다.
 // 앞이 대문자인건 코딩컴벤션 룰이다. 프론트 개발자들은 함수정의할 때나, 컴포넌트로 쓰는건 대문자로 쓴다. 변수는 카멜로 쓰고.
 // _언더바나 .scss확장자는 프리티어에서 알아서 삭제하고 읽는다.
+@import './abstracts/Mixin'; //무조건 최상단으로 넣어야한다.mixin을 기준으로 컴포넌트들을 활용하는거라서.
 @import './base/Variable'; //스크립트 처럼 주석을 한줄가능
 @import './components/Reset';
 @import './components/Button';
+@import './components/Heading'; //제목
+@import './components/Visual'; 
 @import './layout/Header';
 @import './layout/Base'; //기본정의
 @import './layout/Align';

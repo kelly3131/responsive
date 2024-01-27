@@ -9,4 +9,10 @@
         }
     }
     // 가운데정렬
+    .only-mobile {
+        display: none;
+        @media screen and (width < 900px) {
+            display:block;
+        }
+    }
 }
