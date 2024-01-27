@@ -1,0 +1,73 @@
+@layer Button {
+    .btn-login {
+        display: inline-flex;
+        align-items: center;
+        gap: 1rem;
+        color: var(--gray99);
+        font-family: "Noto Sans KR";
+        font-size: 1.2rem;
+        font-style: normal;
+        font-weight: 700;
+        letter-spacing: -0.06rem;
+        white-space: nowrap;
+        @media screen and (width < 900px) {
+            display: none;
+        }
+        &::before {
+            content: '';
+            width: 1.6rem;
+            height: 1.9rem;
+            background: url(../images/ico_login.svg)no-repeat 0 0 / contain;
+            // 같이 커지고 줄어들 수 있게 해야함. 다 보여지게  채워야하니 contain
+            // sass가 아닌css기준으로 이전폴더. 라고 경로정해야한다
+        }
+    }
+    .btn-sitemap {
+        display: inline-flex;
+        align-items: center;
+        gap: 1rem;
+        color: var(--gray99);
+        font-family: "Noto Sans KR";
+        font-size: 1.2rem;
+        font-style: normal;
+        font-weight: 700;
+        letter-spacing: -0.06rem;
+        background: none;
+        // 버튼에 기본적으로 회색배경 있으니 삭제하기
+        white-space: nowrap;
+        span {
+            @media screen and (width < 900px) {
+                position: absolute;
+                width: 1px;
+                height: 1px;
+                overflow:hidden;
+                clip: rect(1px, 1px, 1px, 1px);
+                // 1px의 영역에 가두는거다. 탭 누르면 영역잡힘
+            }
+        }
+        &::before {
+            content: '';
+            width: 1.6rem;
+            height: 1.9rem;
+            background: url(../images/ico_sitemap.svg) no-repeat 0 0 / contain;
+            // 같이 커지고 줄어들 수 있게 해야함. 다 보여지게 채워야하니 contain(크기만큼 꽉채워라)
+            // sass가 아닌css기준으로 이전폴더. 라고 경로정해야한다//
+            @media screen and (width < 900px) {
+                width: 9rem;
+                height: 9rem;
+                background: url(../images/ico_sitemap_white.svg) no-repeat center / 2.8rem auto;
+                // 세로를 auto로 주면 가로에 비례해서 커진다. center는 9rem 영역 안에서 이미지가 가운데로 오게 하는것.
+                
+            }
+        }
+    }
+    .btn-search {
+        display: none;
+        width: 9rem;
+        height: 9rem;
+        background: url(../images/ico_search.svg) no-repeat center / 3.0414rem auto;
+        @media screen and (width < 900px) {
+            display:block;
+        }
+    }
+}

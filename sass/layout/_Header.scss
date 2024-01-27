@@ -1,0 +1,35 @@
+@import "../components/Logo";
+@import "../components/Gnb";
+
+// 헤더 레이아웃 구성을 위한 컴포넌트
+// 로고,메뉴,유틸리티 전용 사스파일이 있어야한다. 컴포넌트 별 사스파일이 있다고 생각하면 된다 css에서 그렇게 했지만 그게 파일화 된거다
+// html은 분리됐다가 한곳으로 모일 수 없으니 한곳에서 하는거다. 리액트처럼 사스도 분리시켰다가 한곳으로 모을거다. 프론트도 컴포넌트별로 작업한다. scss 컴포넌트도 그렇게하는거임
+// header.logo 이렇게 하면 헤더의 자식컴포넌트로 들어감. 그래서 layer순서일때도 그렇게 들어감
+@layer Header {
+    .header {
+        @media screen and (width < 900px) {
+            position: relative;
+            background-color: var(--yellow)
+        }
+        > div {
+            display: grid;
+            align-items: center;
+            // flex만 아니라 그리드에서도 쓸수있있다. grid-cell끼리의 정렬. justify-content도 가능.
+            grid-template-columns: 20.8rem 1fr min-content;
+            // min-content는 버튼 다 합쳤을 때의 크기. 최대한 압축한 크기다보니 글자가 밑으로 떨어짐. 글자의 최소크기는 한자의 크기다. white-space로 글자 안무너지게해야함. min-content 영향을 받아서 글자가 밑으로 떨어지는것
+            height: 9rem;
+            @media screen and (width < 900px) {
+                display: block;
+            }
+        }
+        .utillity {
+            display: flex;
+            align-items: center;
+            gap: 2.6rem;
+            @media screen and (width < 900px) {
+                // 부모가 큰데 자식은 높이가 없어서 hehgith안주면 아이콘 위로올라감.height: 9rem; height줘야함. 버튼에 크기를 주던지.
+                justify-content: space-between;
+            }
+        }
+    }
+}

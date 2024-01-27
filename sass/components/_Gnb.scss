@@ -1,0 +1,42 @@
+@layer Header.Gnb {
+
+    // css nesting에서는 요소선택할 때 & a로 중간에 띄어쓰기를 해야했지만
+    // scss에서는 바로 a를 써도 된다.
+
+    .gnb {
+        display:flex;
+        gap: 4rem;
+        @media screen and (width < 900px) {
+            display: none;
+        }
+        a {
+            position: relative;
+            color: var(--gray33);
+            // scss에서는 변수컬러는 색 미리보기가 안나온다. 플러그인 있을테지만 아직모름.
+            font-size: 1.6rem;
+            font-weight: 700;
+            &::after {
+                // 글자폭에 따라 밑줄 알아서 들어가야 하니까 li가 아닌 a에 선을 줘야한다.
+                content:"";
+                position: absolute;
+                z-index: -1;
+                // -1까지만 있다. -2는 없다. 글자 밑으로 색이 들어감
+                left: 0;
+                right: 0;
+                bottom: 0;
+                border-bottom: 1rem solid var(--yellow);
+                transform: scaleX(0);
+                transition: 1s var(--inout-expo);
+                // 0.4초동안, 1초동안 벌어진다는것. 속도 변수도 있음 cubic-bezier이거 쌤이 해놓은거 쓰기
+                // 요소를 기준으로 after가 작동하는거라 after에서 hover는 적용안된다
+            }
+            &:hover{
+                &::after{
+                    transform: scaleX(1);
+                    // 좌우 폭 0이었다가 호버하면 1(100%)됨
+                }
+            }
+        }
+    }
+
+}

@@ -1,0 +1,12 @@
+@layer Base {
+    .m0auto {
+        width: 122.4rem;
+        margin: 0 auto;
+        @media screen and (width < 900px) {
+            width: 100%;
+            margin: 0;
+            // width:100%이라서 margin 0 auto 적용이 안되긴 함
+        }
+    }
+    // 가운데정렬
+}
